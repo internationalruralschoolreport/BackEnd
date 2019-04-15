@@ -1,12 +1,21 @@
 // Update with your config settings.
 
+const prodDbConnection = process.env.DATABASE_URL;
+
 module.exports = {
 
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3'
-    }
+      filename: './database/ir-school-reports.db3',
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './migrations',
+    },
+    seeds: {
+      directory: './seeds',
+    },
   },
 
   staging: {
@@ -21,23 +30,21 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './migrations',
+    },
+    seeds: {
+      directory: './seeds',
     }
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    client: 'pg',
+    connection: prodDbConnection,
     migrations: {
-      tableName: 'knex_migrations'
+      directory: './migrations',
+    },
+    seeds: {
+      directory: './seeds',
     }
   }
 
