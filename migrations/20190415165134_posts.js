@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('posts', post => {
 
-    post.increment()//id, primary key
+    post.increments();//id, primary key
 
     post.string('postTitle', 250)//general issue/equipment device
         .notNullable();
