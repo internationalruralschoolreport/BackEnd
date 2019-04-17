@@ -36,7 +36,8 @@ usersRouter.post('/', (req, res) => {
         .insert(user)
         .then(newUser => res.status(201).json({user}))
         .catch(err => res.status(500).json(err));
-
 })
+
+
 
 module.exports = usersRouter;

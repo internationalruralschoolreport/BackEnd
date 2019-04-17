@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
           lastName: 'Admin',
           email: 'lambda@admin.com',
           password: 'pass',
-          school: 'Lambda School',
+          school: 'Lambda-School',
           isAdmin: true
         },
         {
@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
           lastName: 'Smith',
           email: 'SSmith@school.com',
           password: 'pass',
-          school: 'Lansdale Catholic High School',
+          school: 'Lansdale-Catholic-High-School',
           isAdmin: false
         },
         {
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
           lastName: 'White',
           email: 'BWhite@school.com',
           password: 'pass',
-          school: 'Lambda School',
+          school: 'Lambda-School',
           isAdmin: false
         },
         {
@@ -34,7 +34,7 @@ exports.seed = function(knex, Promise) {
           lastName: 'Doe',
           email: 'JDoe@school.com',
           password: 'pass',
-          school: 'Lambda School',
+          school: 'Lambda-School',
           isAdmin: false
         },
       ]);

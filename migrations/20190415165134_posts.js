@@ -25,10 +25,19 @@ exports.up = function(knex, Promise) {
       .defaultTo(true);
 
     post.string('user_school', 250)
-      .notNullable();
+      .notNullable()
+      .references('school')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
 
     post.integer('user_id')
-      .notNullable();
+      .unsigned()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
+      
 
   })
 };
