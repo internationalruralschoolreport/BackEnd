@@ -9,6 +9,8 @@ const { authenticate } = require('../../auth/authenticate');
 
 const loginRouter = express.Router();
 
+const secret = process.env.JWT_SECRET || 'this is the secret!';
+
 
 loginRouter.post('/', (req, res) => {
 
@@ -29,5 +31,23 @@ loginRouter.post('/', (req, res) => {
         })
         .catch(err => res.status(500).json(err))
 })
+
+//check to see if user has token
+function restricted(req, res, next) {
+    const token = req.headers.authorization;
+
+    if(token) {
+        jwt.verify(token, secret, (err, decodedToken) => {
+            if (err) {
+                res.status(401).json({ error: 'Invalid Token'})
+            } else {
+                req.decodedJwt = decodedToken;
+                next();
+            }
+        });
+    } else {
+        res.status(401).json({ error: 'User does not have authorization to access'})
+    }
+}
 
 module.exports = loginRouter;

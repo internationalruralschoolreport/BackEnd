@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
         .notNullable();
 
     post.string('imgUrl', 2000) //image of issue or of equipment needed
+        .defaultTo(null);
 
     post.boolean('resolved')
       .notNullable()
