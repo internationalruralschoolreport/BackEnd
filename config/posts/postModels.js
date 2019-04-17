@@ -9,7 +9,7 @@ module.exports = {
     getUnmarkedPosts,
     getDonePosts,
     getScheduledPosts,
-    updatePosts,
+    //updatePosts,
     deletePost
 }
 
@@ -36,34 +36,34 @@ function addPost(post) {
 //get posts that have no been marked by Admin
 function getUnmarkedPosts() {
     return db('posts')
-        .whereRaw('needsAtt = 1');
+        .whereRaw('needsAtt = true');
 };
 
 //get posts marked DONE
 function getDonePosts() {
     return db('posts')
-        .whereRaw('resolved = 1');
+        .whereRaw('resolved = true');
 };
 
 //get posts marked SCHEDULED
 function getScheduledPosts() {
     return db('posts')
-        .whereRaw('scheduled = 1');
+        .whereRaw('scheduled = true');
 };
 
 
 
 //updates posts by ID
-function updatePosts(post, id) {
-    return db('posts')
-        .where('id', id)
-        .update(post);
-}
+// function updatePosts(id) {
+//     return db('posts')
+//         .where({ id: req.params.id})
+//         .update(req.body);
+// }
 
 //delete a post by id
 function deletePost(id) {
     return db('posts')
-        .where('id', id)
+        .where('id', Number(id))
         .del();
 }
 

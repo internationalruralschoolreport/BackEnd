@@ -3,6 +3,7 @@ const express = require('express');
 const Posts = require('./postModels');
 
 const auth = require('../../auth/authenticate');
+const db = require('../../database/dbConfig');
 
 const adminViewRouter = express.Router();
 
@@ -32,5 +33,29 @@ adminViewRouter.get('/:id', auth.adminAccess, async (req, res) => {
         res.status(500).json({ error: "Error retrieving post" })
     }
 });
+
+
+//Admin can update a post, mark is as done, scheduled, ignored
+adminViewRouter.put('/:id', auth.adminAccess, async (req, res) => {
+    try {
+        const count = await db('posts')
+            .where({ id: req.params.id })
+            .update(req.body);
+
+        if (count > 0) {
+            const post = await db('posts')
+                .where({ id: req.params.id })
+                .first();
+
+                res.status(200).json(post.id)
+        } else {
+            res.status(404).json({ error: `Post Id ${post.id} does noe exist` })
+        }
+    } catch (err) {
+        res.status(500).json({ error: "Error updating story" })
+    }
+});
+
+
 
 module.exports = adminViewRouter;
