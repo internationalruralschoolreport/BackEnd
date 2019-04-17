@@ -46,6 +46,6 @@ function adminAccess(req, res, next) {
             }
         });
     } else {
-        res.status(401).json({ error: 'Not token provided'});
+        res.status(401).json({ error: 'No token provided'});
     }
 }

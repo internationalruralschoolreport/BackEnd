@@ -57,5 +57,22 @@ adminViewRouter.put('/:id', auth.adminAccess, async (req, res) => {
 });
 
 
+//Admin can delete posts by id 
+adminViewRouter.delete('/:id', auth.adminAccess, async (req, res) => {
+    try {
+        const count = await db('posts')
+        .where({ id: req.params.id })
+        .del();
+
+        if (count > 0) {
+            res.status(204).json(req.params.id);
+          } else {
+            res.status(404).json({ message: 'This post Id does not exist' });
+          }
+    } catch(err) {
+        res.status(500).json(err);
+    }
+})
+
 
 module.exports = adminViewRouter;

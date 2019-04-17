@@ -9,8 +9,6 @@ module.exports = {
     getUnmarkedPosts,
     getDonePosts,
     getScheduledPosts,
-    //updatePosts,
-    deletePost
 }
 
 
@@ -51,19 +49,4 @@ function getScheduledPosts() {
         .whereRaw('scheduled = true');
 };
 
-
-
-//updates posts by ID
-// function updatePosts(id) {
-//     return db('posts')
-//         .where({ id: req.params.id})
-//         .update(req.body);
-// }
-
-//delete a post by id
-function deletePost(id) {
-    return db('posts')
-        .where('id', Number(id))
-        .del();
-}
 
