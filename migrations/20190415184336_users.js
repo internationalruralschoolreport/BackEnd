@@ -2,11 +2,13 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('users', user => {
 
-        user.increment()//id, primary key
+        user.increments();//id, primary key
 
-        user.string('name', 128) //name
-            .notNullable()
-            .unique();
+        user.string('firstName', 128) //name
+            .notNullable();
+
+        user.string('lastName', 128) //name
+            .notNullable();
 
         user.string('email', 128)
             .notNullable()
@@ -14,6 +16,13 @@ exports.up = function(knex, Promise) {
 
         user.string('password', 128)
             .notNullable();
+
+        user.string('school', 250)
+            .notNullable();
+
+        user.boolean('isAdmin')
+            .notNullable()
+            .defaultTo(false);
     })
 
 };
