@@ -12,6 +12,24 @@ exports.up = function(knex, Promise) {
 
     post.string('imgUrl', 2000) //image of issue or of equipment needed
 
+    post.boolean('resolved')
+      .notNullable()
+      .defaultTo(false);
+
+    post.boolean('scheduled')
+      .notNullable()
+      .defaultTo(false);
+
+    post.boolean('needsAtt')
+      .notNullable()
+      .defaultTo(true);
+
+    post.string('user_school', 250)
+      .notNullable();
+
+    post.integer('user_id')
+      .notNullable();
+
   })
 };
 
