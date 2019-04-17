@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
           resolved: false,
           scheduled: false,
           needsAtt: true,
-          user_school: 'Lambda-School',
+          user_school: 'Lambda School',
           user_id: 1
         },
         {
@@ -20,7 +20,7 @@ exports.seed = function(knex, Promise) {
           resolved: false,
           scheduled: false,
           needsAtt: true,
-          user_school: 'Lambda-School',
+          user_school: 'Lambda School',
           user_id: 1
         },
         {
@@ -31,7 +31,7 @@ exports.seed = function(knex, Promise) {
           resolved: false,
           scheduled: false,
           needsAtt: true,
-          user_school: 'Lansdale-Catholic-High-School',
+          user_school: 'Lansdale Catholic High School',
           user_id: 2
         },
       ]);
