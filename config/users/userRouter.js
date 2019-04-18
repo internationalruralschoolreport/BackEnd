@@ -26,16 +26,23 @@ usersRouter.get('/:id', (req, res) => {
 
 
 //POST create new user, hash password
-usersRouter.post('/', (req, res) => {
-    let user = req.body;
+usersRouter.post('/', async (req, res) => {
+    try {
+        let user = req.body;
 
-    const hash = bcrypt.hashSync(user.password, 8);
-    user.password = hash;
+        const hash = bcrypt.hashSync(user.password, 8);
+        user.password = hash;
 
-    db('users')
-        .insert(user)
-        .then(newUser => res.status(201).json({newUser}))
-        .catch(err => res.status(500).json(err));
+        const [id] = await db('users').insert(user);
+
+        const post = await db('users')
+            .where({id: id})
+            .first();
+
+            res.status(201).json(post);
+    } catch(error) {
+        res.status(500).json(error)
+    }
 })
 
 
