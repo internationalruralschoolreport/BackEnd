@@ -5,7 +5,7 @@ const db = require('../../database/dbConfig');
 module.exports = {
     getAll,
     findById,
-    addPost,
+    // addPost,
     getUnmarkedPosts,
     getDonePosts,
     getScheduledPosts,
@@ -25,11 +25,11 @@ function findById(id) {
 };
 
 
-//add a new post to db
-function addPost(post) {
-    return db('posts')
-        .insert(post);
-};
+// //add a new post to db
+// function addPost(post) {
+//     return db('posts')
+//         .insert(post);
+// };
 
 //get posts that have no been marked by Admin
 function getUnmarkedPosts() {
