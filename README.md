@@ -49,7 +49,7 @@ __URL: /users__
 Schema: 
 
 |    Name   | Type    | Required | Description      |
-|:---------:|---------|----------|--------------------|
+|---------|:---------:|:----------:|:--------------------:|
 |     id    | integer | Yes       | primary key, auto-increments|
 | firstName | string  | Yes      | user's first name, 128 char max |
 |  lastName | string  | Yes      | user's last name, 128 char max |
@@ -93,7 +93,7 @@ __URL: /login__
 Schema:
 
 | Name     | Type   | Required |
-|----------|--------|----------|
+|----------|:--------:|:----------:|
 | email    | String | Yes      |
 | password | String | Yes      |
 
@@ -126,7 +126,7 @@ Schema:
 
 ```
 | Name        | Type    | Required | Description                                                         |
-|-------------|---------|----------|---------------------------------------------------------------------|
+|-------------|:---------:|:----------:|:---------------------------------------------------------------:|
 | id          | integer | Yes       | key value, auto increments                                          |
 | postTitle   | String  | Yes      | Issue/Equipment that needs resolving/replacement, 250 char max      |
 | description | String  | Yes      | Brief description of issue, no char limit                           |
@@ -208,7 +208,7 @@ Schema
 
 ```
 | Name        | Type    | Required | Description                                                         |
-|-------------|---------|----------|---------------------------------------------------------------------|
+|-------------|:-------:|:--------:|:--------------------------------------------------------------------:|
 | id          | integer | Yes       | key value, auto increments                                          |
 | postTitle   | String  | Yes      | Issue/Equipment that needs resolving/replacement, 250 char max      |
 | description | String  | Yes      | Brief description of issue, no char limit                           |

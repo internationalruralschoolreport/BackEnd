@@ -34,7 +34,7 @@ usersRouter.post('/', (req, res) => {
 
     db('users')
         .insert(user)
-        .then(newUser => res.status(201).json({user}))
+        .then(newUser => res.status(201).json({newUser}))
         .catch(err => res.status(500).json(err));
 })
 
