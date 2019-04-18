@@ -47,7 +47,7 @@ adminViewRouter.put('/:id', auth.adminAccess, async (req, res) => {
                 .where({ id: req.params.id })
                 .first();
 
-                res.status(200).json(post.id)
+                res.status(200).json(post)
         } else {
             res.status(404).json({ error: `Post Id ${post.id} does noe exist` })
         }
