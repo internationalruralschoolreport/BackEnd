@@ -208,7 +208,7 @@ Schema
 
 ```
 | Name        | Type    | Required | Description                                                         |
-|-------------|:-------:|:--------:|:--------------------------------------------------------------------:|
+|-------------|:-------:|:--------:|:-------------------------------------------------------------------:|
 | id          | integer | Yes       | key value, auto increments                                          |
 | postTitle   | String  | Yes      | Issue/Equipment that needs resolving/replacement, 250 char max      |
 | description | String  | Yes      | Brief description of issue, no char limit                           |

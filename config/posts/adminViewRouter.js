@@ -65,7 +65,7 @@ adminViewRouter.delete('/:id', auth.adminAccess, async (req, res) => {
         .del();
 
         if (count > 0) {
-            res.status(204).json(req.params.id);
+            res.status(200).json(Number(req.params.id));
           } else {
             res.status(404).json({ message: 'This post Id does not exist' });
           }
