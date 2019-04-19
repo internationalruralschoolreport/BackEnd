@@ -24,7 +24,7 @@ loginRouter.post('/', (req, res) => {
             if (saved && bcrypt.compareSync(password, saved.password)) {
                 const token = generateToken(saved);
 
-                res.status(200).json({ message: `Welcome ${saved.firstName}!`, token})
+                res.status(200).json({ saved, token})
             } else {
                 res.status(401).json({ message: 'Invalid email or password' })
             }

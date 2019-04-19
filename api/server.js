@@ -25,7 +25,7 @@ server.use('/admin', adminViewRouter);
 
 
 server.get('/', (req, res) => {
-    res.send('IR School Report Backend')
+    res.status(200).json('IR School Report Backend')
 })
 
 

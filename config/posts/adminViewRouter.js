@@ -47,7 +47,7 @@ adminViewRouter.put('/:id', auth.adminAccess, async (req, res) => {
                 .where({ id: req.params.id })
                 .first();
 
-                res.status(200).json(post.id)
+                res.status(200).json(post)
         } else {
             res.status(404).json({ error: `Post Id ${post.id} does noe exist` })
         }
@@ -65,7 +65,7 @@ adminViewRouter.delete('/:id', auth.adminAccess, async (req, res) => {
         .del();
 
         if (count > 0) {
-            res.status(204).json(req.params.id);
+            res.status(200).json(Number(req.params.id));
           } else {
             res.status(404).json({ message: 'This post Id does not exist' });
           }
